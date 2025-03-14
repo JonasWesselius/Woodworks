@@ -1,6 +1,13 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  --primary: #da6f00;
+  --primary-dark: #b25900;
+  --primary-light: #fdf6f0;
+  --warm-gray: #f7f5f2;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +30,73 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Add these utility classes */
+.rounded-diagonal {
+  border-radius: 0 12px 0 12px;
+}
+
+.rounded-diagonal-reverse {
+  border-radius: 12px 0 12px 0;
+}
+
+.rounded-diagonal-lg {
+  border-radius: 0 16px 0 16px;
+}
+
+.rounded-diagonal-lg-reverse {
+  border-radius: 16px 0 16px 0;
+}
+
+/* Update the utility classes */
+.button-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px -10px rgba(218, 111, 0, 0.3);
+}
+
+.button-hover-white:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.2);
+}
+
+/* Add this class */
+html {
+  overflow-y: scroll; /* Always show scrollbar */
+  overflow-x: hidden;
+}
+
+/* When modal is open */
+body.modal-open {
+  overflow: hidden;
+  /* No need for padding adjustment since scrollbar is always visible */
+}
+
+/* Add this with your other utility classes */
+.wood-pattern {
+  position: relative;
+  background: url('/wood.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Alternative pattern if you don't like the first one */
+.wood-pattern-alt {
+  background-color: #F4EBE2;
+  background-image: 
+    repeating-linear-gradient(
+      -45deg,
+      rgba(139, 69, 19, 0.03),
+      rgba(139, 69, 19, 0.03) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+  background-size: 10px 10px;
 }
