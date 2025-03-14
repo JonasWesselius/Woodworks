@@ -5,10 +5,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import OfferteButton from './OfferteButton';
+import ContactModal from './ContactModal';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showServices, setShowServices] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   const pathname = usePathname();
 
   const services = [
@@ -142,24 +144,62 @@ const Navbar: React.FC = () => {
             {[
               ['Home', '/'],
               ['Over Ons', '/about'],
-              ['Diensten', '/services'],
-              ['Projecten', '/projects'],
-              ['Contact', '#'],
             ].map(([name, href]) => (
               <Link
                 key={name}
                 href={href}
-                onClick={href === '#' ? () => {
-                  closeMenu();
-                } : closeMenu}
+                onClick={closeMenu}
                 className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium"
               >
                 {name}
               </Link>
             ))}
+            
+            {/* Services Dropdown for Mobile */}
+            <div>
+              <button
+                onClick={() => setShowServices(!showServices)}
+                className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium w-full text-left"
+              >
+                Diensten
+              </button>
+              <div className={`pl-6 space-y-1 ${showServices ? 'block' : 'hidden'}`}>
+                {services.map((service) => (
+                  <Link
+                    key={service.name}
+                    href={service.href}
+                    onClick={closeMenu}
+                    className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium"
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link
+              href="/projects"
+              onClick={closeMenu}
+              className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium"
+            >
+              Projecten
+            </Link>
+            
+            <Link
+              href="/contact"
+              onClick={closeMenu}
+              className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium"
+            >
+              Contact
+            </Link>
           </div>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
+      )}
     </nav>
   );
 };

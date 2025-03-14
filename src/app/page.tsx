@@ -5,6 +5,8 @@ import FadeIn from '@/components/animations/FadeIn';
 import OfferteButton from '@/components/OfferteButton';
 import ReviewCard from '@/components/ReviewCard';
 import AnimatedCounter from '@/components/AnimatedCounter';
+import RotatingReviews from '@/components/RotatingReviews';
+import RotatingServices from '@/components/RotatingServices';
 
 export default function Home() {
   // Add this before the Reviews Section
@@ -65,7 +67,9 @@ export default function Home() {
           <FadeIn>
             <h2 className="text-3xl font-bold text-center mb-12 text-[#da6f00]">Onze Diensten</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Desktop Services Grid */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { title: 'Aanbouw', href: '/services/aanbouw' },
               { title: 'Overkapping', href: '/services/overkapping' },
@@ -88,6 +92,18 @@ export default function Home() {
                 </Link>
               </FadeIn>
             ))}
+          </div>
+
+          {/* Mobile Rotating Services */}
+          <div className="md:hidden">
+            <RotatingServices 
+              services={[
+                { title: 'Aanbouw', href: '/services/aanbouw' },
+                { title: 'Overkapping', href: '/services/overkapping' },
+                { title: 'Verbouwen', href: '/services/verbouwen' },
+                { title: 'Renovatie', href: '/services/renovatie' },
+              ]} 
+            />
           </div>
         </div>
       </section>
@@ -180,12 +196,18 @@ export default function Home() {
             </p>
           </FadeIn>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Desktop Reviews Grid */}
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
               <FadeIn key={review.name} delay={index * 0.1}>
                 <ReviewCard {...review} />
               </FadeIn>
             ))}
+          </div>
+
+          {/* Mobile Rotating Reviews */}
+          <div className="md:hidden">
+            <RotatingReviews reviews={reviews} />
           </div>
         </div>
       </section>
