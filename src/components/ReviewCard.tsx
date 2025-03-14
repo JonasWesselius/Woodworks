@@ -34,7 +34,7 @@ const ReviewCard = ({ name, review, project, projectLink, rating, date }: Review
           </div>
           <span className="text-sm text-gray-500">{date}</span>
         </div>
-        <p className="text-gray-700 mb-6 italic">"{review}"</p>
+        <p className="text-gray-700 mb-6 italic">&ldquo;{review}&rdquo;</p>
       </div>
       <div>
         <div className="text-sm mb-3">
