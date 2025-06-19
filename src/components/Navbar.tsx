@@ -14,10 +14,16 @@ const Navbar: React.FC = () => {
   const pathname = usePathname();
 
   const services = [
-    { name: 'Aanbouw', href: '/services/aanbouw' },
-    { name: 'Overkapping', href: '/services/overkapping' },
-    { name: 'Verbouwen', href: '/services/verbouwen' },
-    { name: 'Renovatie', href: '/services/renovatie' },
+    { name: 'Aanbouwen', href: '/services/aanbouwen' },
+    { name: 'Overkappingen', href: '/services/overkappingen' },
+    { name: 'Badkamers', href: '/services/badkamers' },
+    { name: 'Ruwbouw en Constructie', href: '/services/ruwbouw' },
+    { name: 'Meubilair', href: '/services/meubilair' },
+    { name: 'Loodgieterij', href: '/services/loodgieterij' },
+    { name: 'Daken', href: '/services/daken' },
+    { name: 'Vloeren', href: '/services/vloeren' },
+    { name: 'Wand- en Gevelbekleding', href: '/services/wandbekleding' },
+    { name: 'Huizen (Volledig)', href: '/services/huizen' },
   ];
 
   const isActive = (path: string) => {
@@ -68,9 +74,11 @@ const Navbar: React.FC = () => {
               onMouseEnter={() => setShowServices(true)}
               onMouseLeave={() => setShowServices(false)}
             >
-              <button className={`py-2 ${linkStyle('/services')}`}>
-                Diensten
-              </button>
+              <Link href="/services">
+                <button className={`py-2 cursor-pointer ${linkStyle('/services')}`}>
+                  Diensten
+                </button>
+              </Link>
               <div 
                 className={`absolute z-50 left-0 mt-0 w-56 bg-white rounded-diagonal-lg shadow-lg transition-all duration-300 ${
                   showServices ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -157,12 +165,14 @@ const Navbar: React.FC = () => {
             
             {/* Services Dropdown for Mobile */}
             <div>
-              <button
-                onClick={() => setShowServices(!showServices)}
-                className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium w-full text-left"
-              >
-                Diensten
-              </button>
+              <Link href="/services">
+                <button
+                  onClick={() => setShowServices(!showServices)}
+                  className="text-gray-700 hover:text-[#da6f00] block px-3 py-2 text-base font-medium w-full text-left cursor-pointer"
+                >
+                  Diensten
+                </button>
+              </Link>
               <div className={`pl-6 space-y-1 ${showServices ? 'block' : 'hidden'}`}>
                 {services.map((service) => (
                   <Link

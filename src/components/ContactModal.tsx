@@ -79,7 +79,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedSe
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00]"
+                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00] text-gray-900"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
                   required
@@ -91,7 +91,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedSe
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00]"
+                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00] text-gray-900"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   required
@@ -103,7 +103,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedSe
                 <input
                   type="tel"
                   id="phone"
-                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00]"
+                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00] text-gray-900"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
                 />
@@ -113,16 +113,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedSe
                 <label htmlFor="service" className="block text-gray-700 mb-2">Dienst</label>
                 <select
                   id="service"
-                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00]"
+                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00] text-gray-900"
                   value={formData.service}
                   onChange={(e) => setFormData({...formData, service: e.target.value})}
                   required
                 >
                   <option value="">Selecteer een dienst</option>
-                  <option value="aanbouw">Aanbouw</option>
-                  <option value="overkapping">Overkapping</option>
-                  <option value="verbouwen">Verbouwen</option>
-                  <option value="renovatie">Renovatie</option>
+                  <option value="aanbouwen">Aanbouwen</option>
+                  <option value="overkappingen">Overkappingen</option>
+                  <option value="badkamers">Badkamers</option>
+                  <option value="ruwbouw">Ruwbouw en Constructie</option>
+                  <option value="meubilair">Meubilair</option>
+                  <option value="loodgieterij">Loodgieterij</option>
+                  <option value="daken">Daken</option>
+                  <option value="vloeren">Vloeren</option>
+                  <option value="wandbekleding">Wand- en Gevelbekleding</option>
+                  <option value="huizen">Huizen (Volledig)</option>
                 </select>
               </div>
 
@@ -131,7 +137,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedSe
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00]"
+                  className="w-full px-4 py-2 border rounded-diagonal focus:outline-none focus:ring-2 focus:ring-[#da6f00] text-gray-900"
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   required
